@@ -83,7 +83,7 @@ function numericButton(input){
 
 //handles operator clicks
 function operatorButton(input) {
-    if(!lastCharIsOperator() && screenResult.textContent != "no" && nums.length > 0) {
+    if(!lastCharIsOperator() && screenResult.textContent != "no" && (nums.length > 0 || screenResult.textContent.length > 0)) {
         //if there is a result sets first number in the operation as the result then clears the result
         if (screenResult.textContent && !nums[0]) {
             operation = screenResult.textContent;
