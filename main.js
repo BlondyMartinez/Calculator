@@ -29,6 +29,10 @@ function followOrder(choice){
 
 //updates the operation text
 function addInputToOperation(input){
+    if (operation.length > 14) {
+        operation = operation.slice(1);
+        console.log(operation);
+    } 
     operation += input;
     screenOperation.textContent = operation;
 }
