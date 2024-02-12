@@ -31,19 +31,22 @@ function clearResult(){
 }
 
 function deleteLast(){
-    //if there are operators and last 
-    if (operators.length > 0 && lastCharIsOperator()) operators =  operators.slice(0, -1);
-    else nums[numCount].slice(0, -1);
+    if (!screenResult.textContent){
+        if (operators.length > 0 && lastCharIsOperator()) operators =  operators.slice(0, -1);
+        else if (nums.length > 0) nums[operatorCount] = nums[operatorCount].slice(0, -1);
 
-    operation = operation.slice(0, -1);
-    screenOperation.textContent = operation;
+        if (operation.length > 0) operation = operation.slice(0, -1);
+        screenOperation.textContent = operation;
+    }
 }
 
 
 function lastCharIsOperator(){
-    char = operation[operation.length - 1];
-    if (char == "+" || char == "-" || char == "*" || char == "/") return true;
-    return false;
+    if (operation.length > 0) {
+        char = operation[operation.length - 1];
+        if (char == "+" || char == "-" || char == "*" || char == "/") return true;
+        return false;
+    }
 }
 
 function numericButton(input){
@@ -55,9 +58,9 @@ function numericButton(input){
 function operatorButton(input) {
     if(!lastCharIsOperator()) {
         //if there is a result sets first number in the operation as the result then clears the result
-        if (result) {
-            operation = result;
-            nums[0] = result;
+        if (screenResult.textContent && !nums[0]) {
+            operation = screenResult.textContent;
+            nums[0] = screenResult.textContent;
             clearResult();
         }
         
@@ -72,26 +75,39 @@ function operatorButton(input) {
 }
 
 function dotButton(){
-    if (!lastCharIsOperator && !nums[operatorCount].includes('.')){
+    if (!lastCharIsOperator() && !nums[operatorCount].includes('.')) {
         nums[operatorCount] += '.';
         addInputToOperation('.');
-        console.log("ho")
     }
 }
 
 function equals(){
     if (operators.length > 0 && !lastCharIsOperator()) {
+
+        //remove undefined elements from array
+        nums = nums.filter(function (element) {
+            return element !== undefined;
+        });
+
+        operators = operators.filter(function (element) {
+            return element !== undefined;
+        });
+
         for(let i = 0; i < operators.length; i++){
-            if (i == 0) result += operate(parseFloat(nums[i]), parseFloat(nums[i+1]), operators[i]);
+            if (i == 0) result = operate(parseFloat(nums[i]), parseFloat(nums[i+1]), operators[i]);
             else result = operate(parseFloat(result), parseFloat(nums[i+1]), operators[i])
         }
 
-        result = parseFloat(result).toFixed(2);
+        result = parseFloat(result);
+        //if result is a float, round to 2 decimals
+        if (result % 1 !== 0) result = result.toFixed(2);
         screenResult.textContent = result;
         
         nums = [];
         operators = [];
         operatorCount = 0;
+
+        result= "";
     }
 }
 

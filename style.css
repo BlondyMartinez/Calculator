@@ -63,7 +63,7 @@ body {
     justify-content: space-between;
     align-items: center;
 
-    gap: 10px;
+    gap: 5px;
 }
 
 button {
@@ -89,13 +89,14 @@ button:active{
 }
 .delete{
     background-color: #fbb149;
-    width: 102px;
+    width: 104px;
 }
 .operator{
     background-color: #fbb149;
 }
 .clear{
     background-color: #ff5c5c;
+    width: 104px;
 }
 .equal{
     background-color: rgb(139, 139, 139);
