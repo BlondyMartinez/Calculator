@@ -1,0 +1,98 @@
+@font-face {
+    font-family: Calculator;
+    src: url(Calculator.ttf);
+}
+
+body {
+    min-height: 100vh;
+
+    background: radial-gradient(circle, #994fb2 10%, #733381 100%);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.calculator{
+    border-radius: 10px;
+    border: 4px solid black;
+
+    background-color: rgb(54, 54, 54);
+
+    box-shadow: 10px 10px 1px rgba(0, 0, 0, 0.5);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 10px;
+    gap: 10px;
+}
+
+.screen {
+    height: 100px;
+    width: 100%;
+
+    border: 2px solid black;
+    border-radius: 10px;
+
+    background-color: #7bb661;
+
+    box-shadow: 0 0 20px #aeff8b8a;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: end;
+
+    font-family: Calculator;
+}
+.operation{
+    padding: 10px 10px 0 0;
+    font-size: 20px;
+}
+.result{
+    padding: 0 10px 0 0;
+    font-size: 60px;
+}
+
+.buttons{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 10px;
+}
+
+button {
+    width: 50px;
+    height: 50px;
+
+    border: 2px solid black;
+    border-radius: 5px;
+
+    background-color: rgb(232, 215, 255);
+
+    box-shadow: rgba(0, 0, 0, 0.644) -5px -5px 1px 0px inset;
+
+    padding: 0 5px 5px 0;
+
+    font-weight: bold;
+    font-size: 20px;
+    
+    cursor: pointer;
+}
+button:active{
+    box-shadow: rgba(0, 0, 0, 0.644) 5px 5px 1px 0px inset;
+}
+.operator{
+    background-color: #fbb149;
+}
+.clear{
+    background-color: #ff5c5c;
+}
+.equal{
+    background-color: rgb(139, 139, 139);
+}
