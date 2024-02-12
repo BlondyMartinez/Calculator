@@ -104,21 +104,6 @@ function equals(){
     }
 }
 
-function operate(n1, n2, inputOperator) {
-    operation = "";
-    
-    switch(inputOperator) {
-        case "+":
-            return n1 + n2;
-        case "*":
-            return n1 * n2;
-        case "-":
-            return n1 - n2;
-        case "/":
-            return n1 / n2;
-    }
-}
-
 function removeUndefined() {
     nums = nums.filter(function (element) {
         return element !== undefined;
@@ -147,4 +132,19 @@ function sortOperations() {
     operators = priorityOperators.concat(operators);
     
     removeUndefined();
+}
+
+function operate(n1, n2, inputOperator) {
+    operation = "";
+    
+    switch(inputOperator) {
+        case "+":
+            return n1 + n2;
+        case "*":
+            return n1 * n2;
+        case "-":
+            return n1 - n2;
+        case "/":
+            return n1 / n2;
+    }
 }
