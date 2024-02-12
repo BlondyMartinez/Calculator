@@ -49,8 +49,8 @@ body {
     font-family: Calculator;
 }
 .operation{
-    padding: 10px 10px 0 0;
-    font-size: 20px;
+    padding: 5px 10px 0 0;
+    font-size: 30px;
 }
 .result{
     padding: 0 10px 0 0;
@@ -86,6 +86,10 @@ button {
 }
 button:active{
     box-shadow: rgba(0, 0, 0, 0.644) 5px 5px 1px 0px inset;
+}
+.delete{
+    background-color: #fbb149;
+    width: 102px;
 }
 .operator{
     background-color: #fbb149;

@@ -12,37 +12,42 @@
 <body>
     <div class="calculator">
         <div class="screen">
-            <div class="operation">2*7</div>
-            <div class="result">14</div>
+            <div class="operation"></div>
+            <div class="result"></div>
         </div>
         
         <div class="buttons">
             <div class="row">
-                <button type="button" class="numeric">7</button>
-                <button type="button" class="numeric">8</button>
-                <button type="button" class="numeric">9</button>
-                <button type="button" class="operator">/</button>
+                <button type="button" class="clear" onclick="clearAll()">c</button>
+                <button type="button" class="clear" onclick="clearResult()">ac</button>
+                <button type="button" class="delete" onclick="deleteLast()">del</button>
+            </div>
+            <div class="row">
+                <button type="button" class="numeric" onclick="numericButton('7')">7</button>
+                <button type="button" class="numeric" onclick="numericButton('8')">8</button>
+                <button type="button" class="numeric" onclick="numericButton('9')">9</button>
+                <button type="button" class="operator" onclick="operatorButton('/')">/</button>
             </div>
 
             <div class="row">
-                <button type="button" class="numeric">4</button>
-                <button type="button" class="numeric">5</button>
-                <button type="button" class="numeric">6</button>
-                <button type="button" class="operator">*</button>
+                <button type="button" class="numeric" onclick="numericButton('4')">4</button>
+                <button type="button" class="numeric" onclick="numericButton('5')">5</button>
+                <button type="button" class="numeric" onclick="numericButton('6')">6</button>
+                <button type="button" class="operator" onclick="operatorButton('*')">*</button>
             </div>
 
             <div class="row">
-                <button type="button" class="numeric">1</button>
-                <button type="button" class="numeric">2</button>
-                <button type="button" class="numeric">3</button>
-                <button type="button" class="operator">+</button>
+                <button type="button" class="numeric" onclick="numericButton('1')">1</button>
+                <button type="button" class="numeric" onclick="numericButton('2')">2</button>
+                <button type="button" class="numeric" onclick="numericButton('3')">3</button>
+                <button type="button" class="operator" onclick="operatorButton('+')">+</button>
             </div>
 
             <div class="row">
-                <button type="button" class="clear">c</button>
-                <button type="button" class="numeric">0</button>
-                <button type="button" class="equal">=</button>
-                <button type="button" class="operator">-</button>
+                <button type="button" class="numeric" onclick="numericButton('0')">0</button>
+                <button type="button" class="numeric" onclick="dotButton()">.</button>
+                <button type="button" class="equal" onclick="equals()">=</button>
+                <button type="button" class="operator" onclick="operatorButton('-')">-</button>
             </div>
         </div>
     </div>
