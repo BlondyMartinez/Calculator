@@ -10,6 +10,14 @@
     <title>Calculator</title>
 </head>
 <body>
+    <div class="choice-container">
+        <h1>Do you prefer to chain operations or to use the order of operations?</h1>
+        <div class="choice-buttons">
+            <button type="button" class="choice-btn" id="chain" onclick="followOrder(0)">Chain</button>
+            <button type="button" class="choice-btn selected" id="order" onclick="followOrder(1)">Order</button>
+        </div>
+        <h5>Keyboard supported! Make sure to press alt along with the keys!</h5>
+    </div>
     <div class="calculator">
         <div class="screen">
             <div class="operation"></div>
@@ -18,35 +26,35 @@
         
         <div class="buttons">
             <div class="row">
-                <button type="button" class="clear" onclick="clearAll()" accesskey="c">c</button>
-                <button type="button" class="delete" onclick="deleteLast()" accesskey="backspace">del</button>
+                <button type="button" class="btn clear" onclick="clearAll()" accesskey="c">c</button>
+                <button type="button" class="btn delete" onclick="deleteLast()" accesskey="backspace">del</button>
             </div>
             <div class="row">
-                <button type="button" class="numeric" onclick="numericButton('7')" accesskey="7">7</button>
-                <button type="button" class="numeric" onclick="numericButton('8')" accesskey="8">8</button>
-                <button type="button" class="numeric" onclick="numericButton('9')" accesskey="9">9</button>
-                <button type="button" class="operator" onclick="operatorButton('/')" accesskey="/">/</button>
-            </div>
-
-            <div class="row">
-                <button type="button" class="numeric" onclick="numericButton('4')" accesskey="4">4</button>
-                <button type="button" class="numeric" onclick="numericButton('5')" accesskey="5">5</button>
-                <button type="button" class="numeric" onclick="numericButton('6')" accesskey="6">6</button>
-                <button type="button" class="operator" onclick="operatorButton('*')" accesskey="*">*</button>
+                <button type="button" class="btn numeric" onclick="numericButton('7')" accesskey="7">7</button>
+                <button type="button" class="btn numeric" onclick="numericButton('8')" accesskey="8">8</button>
+                <button type="button" class="btn numeric" onclick="numericButton('9')" accesskey="9">9</button>
+                <button type="button" class="btn operator" onclick="operatorButton('/')" accesskey="/">/</button>
             </div>
 
             <div class="row">
-                <button type="button" class="numeric" onclick="numericButton('1')" accesskey="1">1</button>
-                <button type="button" class="numeric" onclick="numericButton('2')" accesskey="2">2</button>
-                <button type="button" class="numeric" onclick="numericButton('3')" accesskey="3">3</button>
-                <button type="button" class="operator" onclick="operatorButton('+')" accesskey="+">+</button>
+                <button type="button" class="btn numeric" onclick="numericButton('4')" accesskey="4">4</button>
+                <button type="button" class="btn numeric" onclick="numericButton('5')" accesskey="5">5</button>
+                <button type="button" class="btn numeric" onclick="numericButton('6')" accesskey="6">6</button>
+                <button type="button" class="btn operator" onclick="operatorButton('*')" accesskey="*">*</button>
             </div>
 
             <div class="row">
-                <button type="button" class="numeric" onclick="numericButton('0')" accesskey="0">0</button>
-                <button type="button" class="numeric" onclick="dotButton()" accesskey=".">.</button>
-                <button type="button" class="equal" onclick="equals()" accesskey="=">=</button>
-                <button type="button" class="operator" onclick="operatorButton('-')" accesskey="-">-</button>
+                <button type="button" class="btn numeric" onclick="numericButton('1')" accesskey="1">1</button>
+                <button type="button" class="btn numeric" onclick="numericButton('2')" accesskey="2">2</button>
+                <button type="button" class="btn numeric" onclick="numericButton('3')" accesskey="3">3</button>
+                <button type="button" class="btn operator" onclick="operatorButton('+')" accesskey="+">+</button>
+            </div>
+
+            <div class="row">
+                <button type="button" class="btn numeric" onclick="numericButton('0')" accesskey="0">0</button>
+                <button type="button" class="btn numeric" onclick="dotButton()" accesskey=".">.</button>
+                <button type="button" class="btn equal" onclick="equals()" accesskey="=">=</button>
+                <button type="button" class="btn operator" onclick="operatorButton('-')" accesskey="-">-</button>
             </div>
         </div>
     </div>

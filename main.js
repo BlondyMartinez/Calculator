@@ -8,6 +8,23 @@ let nums = [];
 let operators = [];
 let operatorCount = 0;
 
+let orderOfOperations = true;
+
+let order = document.getElementById('order');
+let chain = document.getElementById('chain');
+
+function followOrder(choice){
+    if (choice == 1) {
+        orderOfOperations = true;
+        order.classList.add('selected');
+        chain.classList.remove('selected');
+    } else {
+        orderOfOperations = false;
+        order.classList.remove('selected');
+        chain.classList.add('selected');
+    }
+}
+
 function addInputToOperation(input){
     operation += input;
     screenOperation.textContent = operation;
@@ -84,7 +101,7 @@ function dotButton(){
 function equals(){
     if (operators.length > 0 && !lastCharIsOperator()) {
         removeUndefined();
-        sortOperations();
+        if (orderOfOperations) sortOperations();
 
         for(let i = 0; i < operators.length; i++){
             if (i == 0) result = operate(parseFloat(nums[i]), parseFloat(nums[i+1]), operators[i]);
