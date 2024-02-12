@@ -31,7 +31,7 @@ function clearResult(){
 }
 
 function deleteLast(){
-    if (!screenResult.textContent){
+    if (operation){
         if (operators.length > 0 && lastCharIsOperator()) operators =  operators.slice(0, -1);
         else if (nums.length > 0) nums[operatorCount] = nums[operatorCount].slice(0, -1);
 
@@ -83,15 +83,8 @@ function dotButton(){
 
 function equals(){
     if (operators.length > 0 && !lastCharIsOperator()) {
-
-        //remove undefined elements from array
-        nums = nums.filter(function (element) {
-            return element !== undefined;
-        });
-
-        operators = operators.filter(function (element) {
-            return element !== undefined;
-        });
+        removeUndefined();
+        sortOperations();
 
         for(let i = 0; i < operators.length; i++){
             if (i == 0) result = operate(parseFloat(nums[i]), parseFloat(nums[i+1]), operators[i]);
@@ -124,4 +117,34 @@ function operate(n1, n2, inputOperator) {
         case "/":
             return n1 / n2;
     }
+}
+
+function removeUndefined() {
+    nums = nums.filter(function (element) {
+        return element !== undefined;
+    });
+
+     operators = operators.filter(function (element) {
+        return element !== undefined;
+    });
+}
+
+function sortOperations() {
+    let priorityNums = [];
+    let priorityOperators = [];
+
+    for (let i = 0; i < operators.length; i++){
+        if (operators[i] == '/' || operators[i] == '*'){
+            priorityNums.push(nums[i]);
+            priorityNums.push(nums[i + 1]);
+            priorityOperators.push(operators[i]);
+            nums.splice(i, 2);
+            operators.splice(i, 1);
+        }
+    }
+
+    nums = priorityNums.concat(nums);
+    operators = priorityOperators.concat(operators);
+    
+    removeUndefined();
 }
