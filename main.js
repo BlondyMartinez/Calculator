@@ -48,7 +48,7 @@ function clearResult(){
 }
 
 function deleteLast(){
-    if (operation){
+    if (operation && screenResult.textContent != "no"){
         if (operators.length > 0 && lastCharIsOperator()) operators =  operators.slice(0, -1);
         else if (nums.length > 0) nums[operatorCount] = nums[operatorCount].slice(0, -1);
 
@@ -67,13 +67,15 @@ function lastCharIsOperator(){
 }
 
 function numericButton(input){
-    addInputToOperation(input);
-    if (!nums[operatorCount]) nums[operatorCount] = "";
-    nums[operatorCount] += input;
+    if(screenResult.textContent != "no") {
+        addInputToOperation(input);
+        if (!nums[operatorCount]) nums[operatorCount] = "";
+        nums[operatorCount] += input;
+    }
 }
 
 function operatorButton(input) {
-    if(!lastCharIsOperator()) {
+    if(!lastCharIsOperator() && screenResult.textContent != "no") {
         //if there is a result sets first number in the operation as the result then clears the result
         if (screenResult.textContent && !nums[0]) {
             operation = screenResult.textContent;
@@ -104,15 +106,23 @@ function equals(){
         if (orderOfOperations) sortOperations();
 
         for(let i = 0; i < operators.length; i++){
+            if (parseInt(nums[i + 1]) == 0) {
+                result = "no";
+                break;
+            }
+
             if (i == 0) result = operate(parseFloat(nums[i]), parseFloat(nums[i+1]), operators[i]);
             else result = operate(parseFloat(result), parseFloat(nums[i+1]), operators[i])
         }
 
-        result = parseFloat(result);
-        //if result is a float, round to 2 decimals
-        if (result % 1 !== 0) result = result.toFixed(2);
-        screenResult.textContent = result;
+        if (result != "no") {
+            result = parseFloat(result);
+            //if result is a float, round to 2 decimals
+            if (result % 1 !== 0) result = result.toFixed(2);
+        }
         
+        screenResult.textContent = result;
+
         nums = [];
         operators = [];
         operatorCount = 0;

@@ -9,8 +9,57 @@ body {
     background: radial-gradient(circle, #994fb2 10%, #733381 100%);
 
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.choice-container{
+    width: 500px; 
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding-bottom: 40px;
+}
+.choice-container h1 {
+    font-family: Calculator;
+    font-weight: bolder;
+    text-align: center;
+}
+.choice-container h5 {
+    font-weight: bolder;
+    text-align: center;
+}
+.choice-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 20px;
+}
+.choice-btn {
+    width: 100px;
+
+    border-radius: 10px;
+    border: 2px solid black;
+
+    background-color: #bde0ae; 
+
+    padding: 5px 10px 0 0;
+
+    font-family: Calculator;
+    font-size: 30px;
+    font-weight: bolder;
+    
+    box-shadow: 5px 5px 1px rgba(0, 0, 0, 0.5);
+
+    cursor: pointer;
+}
+.selected, .choice-btn:hover {
+    background-color: #8bbd76; 
 }
 
 .calculator{
@@ -66,7 +115,7 @@ body {
     gap: 5px;
 }
 
-button {
+.btn {
     width: 50px;
     height: 50px;
 
@@ -84,7 +133,7 @@ button {
     
     cursor: pointer;
 }
-button:active{
+.btn:active{
     box-shadow: rgba(0, 0, 0, 0.644) 5px 5px 1px 0px inset;
 }
 .delete{
