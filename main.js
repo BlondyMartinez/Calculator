@@ -1,3 +1,4 @@
+//variable declarations
 let operation = "";
 let screenOperation = document.querySelector('.operation');
 
@@ -13,6 +14,7 @@ let orderOfOperations = true;
 let order = document.getElementById('order');
 let chain = document.getElementById('chain');
 
+//sets the order of operations
 function followOrder(choice){
     if (choice == 1) {
         orderOfOperations = true;
@@ -25,11 +27,13 @@ function followOrder(choice){
     }
 }
 
+//updates the operation text
 function addInputToOperation(input){
     operation += input;
     screenOperation.textContent = operation;
 }
 
+//clears all variables and resets calculator
 function clearAll() {
     operation = "";
 
@@ -42,11 +46,13 @@ function clearAll() {
     clearResult();
 }
 
+//clears the result
 function clearResult(){
     result = "";
     screenResult.textContent = result;
 }
 
+//delete last element of operation and updates the text
 function deleteLast(){
     if (operation && screenResult.textContent != "no"){
         if (operators.length > 0 && lastCharIsOperator()) operators =  operators.slice(0, -1);
@@ -57,7 +63,7 @@ function deleteLast(){
     }
 }
 
-
+//checks if the last char of operation is an operator
 function lastCharIsOperator(){
     if (operation.length > 0) {
         char = operation[operation.length - 1];
@@ -66,6 +72,7 @@ function lastCharIsOperator(){
     }
 }
 
+//handles numeric clicks
 function numericButton(input){
     if(screenResult.textContent != "no") {
         addInputToOperation(input);
@@ -74,6 +81,7 @@ function numericButton(input){
     }
 }
 
+//handles operator clicks
 function operatorButton(input) {
     if(!lastCharIsOperator() && screenResult.textContent != "no" && nums.length > 0) {
         //if there is a result sets first number in the operation as the result then clears the result
@@ -93,6 +101,7 @@ function operatorButton(input) {
     }
 }
 
+//handles dot clicks
 function dotButton(){
     if (!lastCharIsOperator() && !nums[operatorCount].includes('.')) {
         nums[operatorCount] += '.';
@@ -100,6 +109,7 @@ function dotButton(){
     }
 }
 
+//evaluates the expression
 function equals(){
     if (operators.length > 0 && !lastCharIsOperator()) {
         removeUndefined();
@@ -131,6 +141,7 @@ function equals(){
     }
 }
 
+//removes undefined from arrays
 function removeUndefined() {
     nums = nums.filter(function (element) {
         return element !== undefined;
@@ -141,6 +152,7 @@ function removeUndefined() {
     });
 }
 
+//function to sort operations following the order of operations
 function sortOperations() {
     let priorityNums = [];
     let priorityOperators = [];
@@ -161,6 +173,7 @@ function sortOperations() {
     removeUndefined();
 }
 
+//performs arithmetic operations
 function operate(n1, n2, inputOperator) {
     operation = "";
     
