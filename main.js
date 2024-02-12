@@ -192,3 +192,13 @@ function operate(n1, n2, inputOperator) {
             return n1 / n2;
     }
 }
+
+function invertLastNum(){
+    nums[operatorCount] = nums[operatorCount] * -1;
+    operation = "";
+    for (let i = 0; i < nums.length ; i++) {
+        operation += nums[i];
+        if (operators[i]) operation += operators[i];
+    }
+    screenOperation.textContent = operation;
+}
