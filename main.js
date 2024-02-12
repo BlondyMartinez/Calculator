@@ -75,7 +75,7 @@ function numericButton(input){
 }
 
 function operatorButton(input) {
-    if(!lastCharIsOperator() && screenResult.textContent != "no") {
+    if(!lastCharIsOperator() && screenResult.textContent != "no" && nums.length > 0) {
         //if there is a result sets first number in the operation as the result then clears the result
         if (screenResult.textContent && !nums[0]) {
             operation = screenResult.textContent;
@@ -106,7 +106,7 @@ function equals(){
         if (orderOfOperations) sortOperations();
 
         for(let i = 0; i < operators.length; i++){
-            if (parseInt(nums[i + 1]) == 0) {
+            if (parseFloat(nums[i + 1]) == 0) {
                 result = "no";
                 break;
             }
