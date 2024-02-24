@@ -8,11 +8,12 @@ Welcome to my calculator project! This simple yet powerful calculator is built u
 - **Order of Operations**: Follows PEMDAS (Parentheses, Exponents, Multiplication and Division, Addition and Subtraction) for accurate calculations.
 - **Keyboard Support**: Input calculations using your keyboard for increased efficiency.
 
-## Demo 📺
-[Insert Demo Link or GIF Here]
-
 ## Live Preview 🌐
 Check out the live preview of the calculator [here](https://blondymartinez.github.io/Calculator/).
+
+
+## Demo 📺
+![Calculator Demo](sO4YVG9Urr.gif)
 
 ## How to Run 🏃‍♂️
 To run this calculator project locally:
