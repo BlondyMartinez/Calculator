@@ -24,6 +24,11 @@ body {
 
     padding-bottom: 40px;
 }
+@media (max-width: 768px) {
+    .choice-container {
+        width: 350px;
+    }
+}
 .choice-container h1 {
     font-family: Calculator;
     font-weight: bolder;
